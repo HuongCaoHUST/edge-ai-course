@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slide Demo - Giới thiệu</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slides {
+      height: 100vh;
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+    .slide {
+      min-width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 { font-size: 3rem; margin-bottom: 16px; }
+    h2 { font-size: 2.2rem; margin-bottom: 20px; color: #38bdf8; }
+    p { font-size: 1.3rem; max-width: 700px; color: #94a3b8; line-height: 1.6; }
+    ul { text-align: left; font-size: 1.25rem; color: #cbd5e1; }
+    li { margin-bottom: 12px; }
+    .nav {
+      position: fixed;
+      bottom: 24px;
+      left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      z-index: 10;
+    }
+    .nav button {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .nav button:hover { background: #334155; }
+    .counter {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 24px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .back-link:hover { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-link">← Về chương</a>
+  <div class="counter"><span id="current">1</span> / <span id="total">4</span></div>
+
+  <div class="slides" id="slides">
+    <section class="slide">
+      <h1>Chào mừng</h1>
+      <p>Đây là slide demo đơn giản chạy hoàn toàn trên trình duyệt.<br>Không cần PowerPoint hay thư viện nặng.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Mục tiêu khóa học</h2>
+      <ul>
+        <li>Hiểu cấu trúc course static</li>
+        <li>Biết cách tổ chức slide + lab + code</li>
+        <li>Deploy lên GitHub Pages</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Cách điều khiển</h2>
+      <p>
+        Dùng phím <strong>← →</strong> hoặc nút bên dưới<br>
+        để chuyển slide.
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Kết thúc</h2>
+      <p>Bạn có thể nhân bản file này để tạo thêm slide mới.<br>Chúc bạn học vui!</p>
+    </section>
+  </div>
+
+  <div class="nav">
+    <button id="prev">← Trước</button>
+    <button id="next">Sau →</button>
+  </div>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const total = document.querySelectorAll('.slide').length;
+    document.getElementById('total').textContent = total;
+    let current = 0;
+
+    function goTo(index) {
+      if (index < 0 || index >= total) return;
+      current = index;
+      slides.style.transform = `translateX(-${current * 100}vw)`;
+      document.getElementById('current').textContent = current + 1;
+    }
+
+    document.getElementById('prev').onclick = () => goTo(current - 1);
+    document.getElementById('next').onclick = () => goTo(current + 1);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') goTo(current + 1);
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+    });
+  </script>
+</body>
+</html>
