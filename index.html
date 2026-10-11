@@ -3,55 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khóa học Demo - Static Course</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Khóa học Demo</title>
+  <link rel="stylesheet" href="css/style.css?v=3" />
 </head>
 <body>
-  <div class="container">
-    <header class="hero">
-      <h1>Khóa học Demo</h1>
-      <p class="subtitle">Khóa học tĩnh chạy trên GitHub Pages · HTML + Slide + Lab + Code</p>
+  <main class="container home-page">
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">B</span><span>ĐHBK Hà Nội</span></a>
     </header>
 
-    <section class="intro">
-      <h2>Giới thiệu</h2>
-      <p>
-        Đây là dự án mẫu khóa học dạng static. Bạn có thể clone, chỉnh sửa nội dung
-        và đẩy lên GitHub Pages để học viên truy cập miễn phí.
-      </p>
-      <ul>
-        <li>Mỗi chương là một thư mục riêng</li>
-        <li>Slide dạng web (không cần PowerPoint)</li>
-        <li>Có phần Lab thực hành và Code mẫu</li>
-      </ul>
-    </section>
-
-    <section class="modules">
-      <h2>Danh sách chương</h2>
-      <div class="module-list">
-        <a href="modules/01-gioi-thieu/" class="module-card">
-          <span class="num">01</span>
-          <div class="info">
-            <h3>Giới thiệu khóa học</h3>
-            <p>Mục tiêu, cấu trúc và cách sử dụng khóa học</p>
-          </div>
-          <span class="arrow">→</span>
-        </a>
-
-        <a href="modules/02-chuong-hai/" class="module-card">
-          <span class="num">02</span>
-          <div class="info">
-            <h3>Chương 2 - Nội dung chính</h3>
-            <p>Chương mẫu thứ hai (bạn có thể nhân bản)</p>
-          </div>
-          <span class="arrow">→</span>
-        </a>
+    <section class="welcome">
+      <div>
+        <h1>Khóa học Demo</h1>
+        <p class="lead">Chọn một chương để bắt đầu.</p>
       </div>
     </section>
 
-    <footer>
-      <p>Deploy trên GitHub Pages · Cấu trúc tĩnh · Không cần server</p>
-    </footer>
-  </div>
+    <div class="home-grid">
+      <section class="intro panel">
+        <div class="panel-heading"><span class="folder-icon folder-blue"></span><h2>Nội dung</h2></div>
+        <p>Khóa học gồm các bài giảng, bài thực hành và mã nguồn mẫu.</p>
+      </section>
+
+      <section class="modules panel">
+        <div class="file-toolbar">
+          <div class="panel-heading"><span class="folder-icon folder-yellow"></span><h2>Các chương</h2></div>
+        </div>
+        <div class="file-tree">
+          <a href="modules/01-gioi-thieu/" class="file-row folder-row"><span class="tree-guide"></span><span class="folder-icon folder-yellow"></span><span class="file-name"><strong>01-gioi-thieu</strong><small>Giới thiệu khóa học</small></span><span class="file-arrow">›</span></a>
+          <a href="modules/02-chuong-hai/" class="file-row folder-row"><span class="tree-guide"></span><span class="folder-icon folder-yellow"></span><span class="file-name"><strong>02-chuong-hai</strong><small>Nội dung chính</small></span><span class="file-arrow">›</span></a>
+        </div>
+      </section>
+    </div>
+
+  </main>
 </body>
 </html>
