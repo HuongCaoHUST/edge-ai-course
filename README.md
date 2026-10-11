@@ -35,11 +35,18 @@ python -m http.server 8000
 
 ## Deploy lên GitHub Pages
 
-1. Tạo repo mới trên GitHub
-2. Push toàn bộ nội dung thư mục này lên
-3. Vào **Settings → Pages**
-4. Source: Deploy from a branch → chọn `main` / `root`
-5. Đợi vài phút, truy cập `https://<username>.github.io/<repo-name>/`
+1. Push toàn bộ nội dung lên GitHub và bảo đảm workflow nằm tại
+   `.github/workflows/static.yml`.
+2. Vào **Settings → Pages → Build and deployment**.
+3. Ở **Source**, chọn **GitHub Actions** (không chọn **Deploy from a branch**).
+4. Vào tab **Actions**, chạy workflow **Deploy static content to Pages** hoặc push
+   một commit mới lên nhánh `master`.
+5. Đợi workflow hoàn tất rồi truy cập `https://<username>.github.io/<repo-name>/`.
+
+Nếu workflow báo `Get Pages site failed` hoặc `404 Not Found`, Pages chưa được
+bật cho repository. Hãy thực hiện bước 2–3 trước khi chạy lại workflow. Nếu
+repository thuộc tổ chức, administrator có thể cần cho phép GitHub Pages và
+GitHub Actions trong phần policy của tổ chức.
 
 ## Thêm chương mới
 
